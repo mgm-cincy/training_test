@@ -16,3 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 - Data Models
 - Visualization
 - Manuscript
+
+# Run time details
+
+This is from the code.
