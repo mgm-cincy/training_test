@@ -9,3 +9,4 @@ Here is a list:
 * bird
 * reptile
 * mammal
+* whale
