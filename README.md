@@ -5,6 +5,7 @@ I am practcing with git, R, and markdown.
 
 Here is a list:
 
-fish
-bird
-reptile
+* fish
+* bird
+* reptile
+* mammal
