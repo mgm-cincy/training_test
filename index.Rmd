@@ -1,5 +1,5 @@
 ---
-title: "New NCEAS Training"
+title: "Development branch NCEAS Training"
 author: "Michael McManus (EPA)"
 date: "2/4/2020"
 output: html_document
