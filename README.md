@@ -10,3 +10,4 @@ Here is a list:
 * reptile
 * mammal
 * whale
+* coral
