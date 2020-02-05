@@ -1,0 +1,56 @@
+---
+title: "Functions"
+author: "Michael McManus (EPA)"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(roxygen2)
+
+
+airtemps <- c(212, 30.3, 78, 32)
+celsius1 <- (airtemps[1]-32)*5/9
+celsius2 <- (airtemps[2]-32)*5/9
+celsius3 <- (airtemps[3]-32)*5/9
+
+```
+
+Firts F to C
+Note #' notation for special comment used with functions for roxygen2
+```{r}
+#' converts degrees Farenheit to Celsius
+#' 
+#' we use the simple formula for temperature to convert.
+#' Found in intro physics book
+#' @param fahr The temperature to be converted in degrees Fahrenheit
+#' @return the temperature converted to degrees Celsius
+#' @keywords conversion
+#' @examples
+#' fahr_to_celsius(32)
+#' fahr_to_celsius(c(212, 100, 32))
+
+fahr_to_celsius <- function(fahr){
+    celsius <- (fahr-32)*5/9
+    return(celsius)
+}
+
+```
+
+```{r}
+celsius5 <- fahr_to_celsius(airtemps[1])
+
+celsius <- fahr_to_celsius(airtemps)
+celsius
+```
+
+```{r}
+cels_to_fahr <- function(cels){
+    fahr <- (cels*5/9) + 32
+    return(fahr)
+}
+
+fahr <- cels_to_fahr(airtemps)
+fahr
+```
