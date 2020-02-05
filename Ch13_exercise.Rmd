@@ -1,0 +1,63 @@
+---
+title: "Ch13_exercise"
+author: "Michael McManus (EPA)"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+```
+
+```{r, data_input}
+
+adfg_ds1 <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/urn%3Auuid%3Af119a05b-bbe7-4aea-93c6-85434dcb1c5e", method = "libcurl"), stringsAsFactors = FALSE)
+
+head(adfg_ds1)   
+names(adfg_ds1)
+str(adfg_ds1)
+tail(adfg_ds1)
+
+distinct(adfg_ds1, SASAP.Region)
+
+adfg_ds2 <- adfg_ds1 %>% filter(Species == "Sockeye" & SASAP.Region == "Bristol Bay")
+head(adfg_ds2)
+
+adfg_ds2 <- as_date(ymd("sampleDate"))
+summary(adfg_ds2)
+
+adfg_ds3 <- adfg_ds2 %>% 
+  separate(sampleDate, into = c("year", "month", "date"), "-", remove = FALSE)
+head(adfg_ds3)
+
+summary(adfg_ds3)
+
+mean_region <- catch_long %>% 
+  group_by(Region, species) %>%
+  summarise(catch_mean = mean(catch),
+            n_obs = n())
+
+mv_ds1 <- read.csv(url("https://knb.ecoinformatics.org/knb/d1/mn/v2/object/knb.92014.1", method = "libcurl"), stringsAsFactors = FALSE)
+
+head(mv_ds1)
+distinct(mv_ds1, Region)
+distinct(mv_ds1, Species)
+mv_ds2 <- mv_ds1 %>% 
+    filter(Region == "Bristol Bay" & Species == "Sockeye") %>% 
+    select(Area:Initial.Year) %>% 
+    mutate(Lower = as.numeric(Lower))
+
+head(mv_ds2)
+summary(mv_ds2)
+
+i <- which(is.na(mv_ds2$Lower))
+i
+mv_ds2[i,]
+
+mv_ds3 <- mv_ds2 %>% filter(Lower != "NA") %>% filter(Upper != "NA")
+
+
+
+```
