@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Analysis Plan
 
-- [Data Cleaning](data-cleaning.html)
+- [Data Cleaning](data_cleaning.html)
 - Data Models
 - Visualization
 - Manuscript
