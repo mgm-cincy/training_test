@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Data Cleaning](data-cleaning.html)
 - Data Models
-- Visualization
+- [Visualization](ch16_ggplot2.html)
 - Manuscript
 
 # Run time details
