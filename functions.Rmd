@@ -17,6 +17,11 @@ celsius3 <- (airtemps[3]-32)*5/9
 
 ```
 
+
+```{r}
+# source relevant functions
+source('conversions.R')
+```
 Firts F to C
 Note #' notation for special comment used with functions for roxygen2
 ```{r}
@@ -46,11 +51,12 @@ celsius
 ```
 
 ```{r}
+source('conversions.R')
 cels_to_fahr <- function(cels){
     fahr <- (cels*5/9) + 32
     return(fahr)
 }
 
-fahr <- cels_to_fahr(airtemps)
-fahr
+# fahr <- cels_to_fahr(airtemps)
+# fahr
 ```
